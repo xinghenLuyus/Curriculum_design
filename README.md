@@ -1,4 +1,4 @@
-# vvvue
+# vuevue
 
 ## Project setup
 ```

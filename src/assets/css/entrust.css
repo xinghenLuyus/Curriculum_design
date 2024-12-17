@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* 页脚stare */
+#footer {
+    display: flex; 
+    justify-content: space-between;
+    background: rgb(124,164,164);
+}
+#footer img {
+    margin: auto 0px;
+    width: 15%;
+    height: 5%;
+    float: left;
+}
+#footer-p {
+    font-size: 10px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+#footer a {
+    text-decoration: none; 
+    color: white;
+    transition: background-color 0.3s;
+}
+#footer a:hover {
+    background-color: grey; 
+    border-radius: 4px;
+}
+/* 页脚end */
+
+/* 头部stare */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+}
+#return {
+    width: 5%;
+    height: auto;
+}
+#logo { 
+    width: 15%;
+    height: auto;
+}
+/* 头部end */
+
+/* 主要内容stare */
+#main {
+    background-image: url(../picture/委托约稿/背景.jpg);
+    display: flex;
+    justify-content: center; /* 水平方向居中对齐 */
+    align-items: center; /* 垂直方向居中对齐 */
+    min-height: 100vh; /* 使内容占满整个视口高度 */
+
+}
+#container {  
+    width: 80%;
+    height: auto;
+    padding: 20px;  
+    background: rgba(255, 255, 255, 0.8);  
+    border-radius: 8px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+} 
+#container>h1 {
+    text-align: left;  
+}
+#need{
+    width: 90%;
+    height: 35px;
+    border-radius: 5px;
+    white-space: pre-wrap;  
+    word-wrap: break-word;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#wt, #qx {
+    width: 92%;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.8);  
+    border-radius: 5px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center; /* 垂直方向居中对齐 */
+    justify-content: space-around; /* 水平方向均匀分布 */
+}
+#wt>button, #qx>button {
+    width: 15%;
+    height: 60px;
+    text-align: center;
+}
+#qx>button {
+    width: 20%;
+}
+#set-up{
+    width: 92%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.8);  
+    border-radius: 5px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center; 
+    justify-content: space-around; 
+}
+#set-up>p{
+    font-size: 16px;
+    font-weight: bold;
+}
+#set-up>input{
+    width: 30%;
+    height: 20px;
+    margin:auto 5px;
+    word-wrap: break-word;
+}
+#send{
+    background-color: blue;
+    border: none;
+    color: white;
+    margin: 40px auto;
+    padding: 15px 32px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+#send:hover{
+    background-color:lightcoral;
+    color: black;
+}
+#last{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+/* 主要内容end */
+
+/* 自适应stare */
+@media (max-width: 768px) {
+    #footer-p {
+        font-size: 8px;
+    }
+    #header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #container>h1 {
+        font-size: 14px; 
+    }
+    #wt>button{
+        font-size: 8px;
+    }
+    #qx>button{
+        font-size: 10px;
+    }
+    #set-up{
+        height: 50px;
+    }
+    #set-up>p{
+        font-size: 12px;
+    }
+    #set-up>input{
+        height: 15px;
+    }
+    #wt, #qx {
+        height: 50px;
+    }
+    #wt>button, #qx>button {
+        height: 30px;
+    }
+    #send{
+        padding: 7.5px 16px;
+        font-size: 12px;
+    }
+}
+/* 自适应end */

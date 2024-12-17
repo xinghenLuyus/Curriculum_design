@@ -1,0 +1,350 @@
+body{
+    background:url(../picture/背景色.jpg);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-size: cover;  
+    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
+}
+
+/* 导航条stare */
+#navbar {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    background-color: white;
+    padding: 10px 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    font-size: 24px;
+}
+#logo {
+    margin-right: 20px; 
+    width: 15%;
+    height: 100%;
+    margin-right: 10px;
+}
+#navbar nav {
+    display: flex; 
+}
+#navbar a {
+    text-decoration: none; 
+    color: black; 
+    margin: 0 15px; 
+    padding: 5px 10px; 
+    transition: background-color 0.3s; 
+}
+#navbar a:hover {
+    background-color: #f0f0f0; 
+    border-radius: 4px; 
+}
+#navbar a:nth-child(6){width: 100%;}
+#login {
+    margin-left: auto; 
+    font-weight: bold; 
+    padding: 5px 10px; 
+    color: black; 
+    border-radius: 4px; 
+    transition: background-color 0.3s; 
+}
+#login:hover {
+    background-color: #0056b3;
+}
+/* 导航条end */
+
+/* 大屏stare */
+#banner img{
+    width: 100%;
+    height: auto;
+}
+/* 大屏end */
+
+/* 页脚stare */
+#footer{
+    display: flex; 
+    justify-content: space-between;
+    /* align-items: center; */
+    background: rgb(124,164,164); 
+}
+#footer img{
+    margin: auto 0px;
+    width: 15%;
+    height: 5%;
+    float: left;
+}
+#footer p{
+    font-size: 10px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+#footer a{
+    text-decoration: none; 
+    color: white;
+    transition: background-color 0.3s; 
+}
+#footer a:hover{
+    background-color: grey; 
+    border-radius: 4px; 
+}
+#lianjie img{
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    margin: 5px; 
+}
+/* 页脚end */
+
+/* 盒子stare */
+#box{
+    margin: 50px auto ;
+    padding: 40px;
+}
+#la{
+    width: 150px;
+    height: 40px;
+    background: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 40px; 
+    overflow: hidden;  
+    text-align: left;
+}
+#box1{
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+}
+#box2{
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    /* width: 100%; */
+    height: 250px;
+}
+#la>img{
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+/* 盒子end */
+
+/* 画师stare */
+#icon-tabel{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+#icon-tabel tr th{
+    border: 1px solid black;
+}
+#pic1{
+    width: 60%;
+    height: auto;
+}
+#icon-tabel th p{
+    align-items: center;
+}
+#icon-tabel th a{
+    text-decoration: none;
+    color: black;
+}
+#Gua-table{
+    width: 100%;
+}
+#part1>img{
+    width: 100%;
+    height: auto;
+}
+#part1{
+    width: 70%;
+}
+#part2{
+    width: 30%;
+}
+/* 画师end */
+
+/* 标签stare */
+#biaoqian {
+    width: 100%;
+}
+#biaoqian td{
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
+}
+#biaoqian-1{
+    width: 100%;
+    height: 10%;
+}
+#biaoqian-2{
+    width: 100%;
+    height: 90%;
+}
+#biaoqian a{
+    transition: background-color 0.3s; 
+}
+#biaoqian img{
+    height: auto;
+    width: 100%;
+}
+#biaoqian-2>td{
+    width: 20%;
+}
+
+/* 标签end */
+
+/* 活动stare */
+#activity1 {
+    background-image: url(../picture/首页/1.png);
+}
+#activity2 {
+    background-image: url(../picture/首页/2.png);
+}
+#activity3 {
+    background-image: url(../picture/首页/3.png);
+}
+#activity1,
+#activity2,
+#activity3 {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 3%;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    height: 130px;
+    float: left;
+}
+
+#la2{
+    background-color: grey;
+    color: white;
+}
+/* 活动end */
+
+/* 中间选取stare */
+#container {  
+    display: flex;  
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 20px;  
+}  
+#rounded-rect {  
+    width: 25%;
+    height: auto;  
+    border-radius: 15px;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center; 
+    padding: 10px;  
+    padding-bottom: 3%; 
+    background-color: white; 
+}  
+#rounded-rect img {  
+    width: 60%; 
+    height: auto; 
+    justify-content: center;
+}  
+#rounded-rect a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+#rounded-rect>a:hover{
+    background-color: #f0f0f0; 
+    border-radius: 4px; 
+    font-size: 20px;
+}
+/* 中间选区end        */
+
+/* 自适应stare */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        font-size: 12px;
+    }
+    #navbar nav {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
+    #navbar a {
+        margin: 1px 1px;
+    }
+    #footer p {
+        font-size: 8px;
+    }
+    #lianjie img{
+        width: 20px; 
+        height: 20px; 
+        border-radius: 50%; 
+    }
+    #container {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
+    #rounded-rect {
+        width: 25%;
+        height: auto;
+        /* margin-bottom: 10px; */
+        margin-left: 3%;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+    #rounded-rect a {
+        font-size: 12px;
+    }
+    #rounded-rect a:hover{
+        font-size: 14px;
+    }
+    #box {
+        margin: 20px auto;
+        padding: 20px;
+        width: 100%;
+    }
+    #box1 {
+        padding: 20px;
+        width: 100%;
+    }
+    #activity1,
+    #activity2,
+    #activity3 {
+        width: 15%;
+        margin: 10px 5px;
+        float: left;
+        font-size: 10px;
+        background-size: cover;  
+        background-position: center; 
+        background-repeat: no-repeat;
+    }
+    #biaoqian td {
+        font-size: 10px;
+    }
+    #la{
+        width: 100px;
+        height: 30px;
+        background: white;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 30px; 
+        overflow: hidden;  
+        text-align: left;
+    }
+    #la>img{
+        width: 30px;
+        height: 30px;
+        float: left;
+    }
+    #icon-tabel th p{
+        font-size: 10px;
+    }
+}
+/* 自适应end */
