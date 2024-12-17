@@ -97,4 +97,4 @@ name: 'ClassifyPage'
 }
 </script>
   
-<style scoped src="@/assets/css/cclassify.css"></style>
+<style scoped src="@/assets/css/classify.css"></style>

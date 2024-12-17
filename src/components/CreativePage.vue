@@ -4,7 +4,7 @@
         <div id="main-top">
             <!-- 左边 -->
             <div id="main-left">
-                <div id="logo"><img src="@/assetspicture/logo.png" alt="" id="logo-pic"></div>
+                <div id="logo"><img src="@/assets/picture/logo.png" alt="" id="logo-pic"></div>
                 <div id="left-1">
                     <div id="but"><button id="send">发布创作</button></div>
                     <hr>
