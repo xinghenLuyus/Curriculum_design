@@ -1,0 +1,66 @@
+<template>
+    <div class="box2"><!-- 登录盒子 -->
+        <!-- 大屏stare -->
+        <div id="banner"><img src="./picture/登录界面/02.jpg" alt=""></div>
+        <!-- 大屏end -->
+
+        <!-- 导航条stare -->
+        <div id="navbar">
+            <img src="./picture/logo.png" alt="Logo" id="logo"> 
+            <nav>
+                <a href="./首页.html" target="_blank">首页</a>
+                <a href="./推荐页面.html" target="_blank">推荐</a>
+                <a href="./分类页面.html" target="_blank">分类</a>
+                <a href="./动态页面.html" target="_blank">动态</a>
+                <a href="./用户中心.html" target="_blank">用户中心</a>
+            </nav>
+        </div>
+        <!-- 导航条end -->
+
+        <!-- 主要内容stare -->
+        <div id="main">
+            <img src="./picture/登录界面/登录艺术字.png" alt="" id="ysz">
+            <form class="container">  
+                <div class="input-group">  
+                    <label for="username">用户名</label>  
+                    <input type="text" id="username" placeholder="ID / 手机号 / 邮箱">  
+                </div>  
+                <div class="input-group">  
+                    <label for="password">密码</label>  
+                    <input type="password" id="password" placeholder="请输入您的密码">  
+                </div>  
+                <label for="" style="font-size: 10px;color: grey;float: left;">*若无账号点击“注册” 默认注册一个账号</label>
+                <div class="mima">
+                    <div style="display: flex; justify-content: flex-end;">
+                        <input type="checkbox"  class="miam-lable">记住密码
+                    </div>
+                </div>
+                <div class="buttons">    
+                    <input type="button" value="注册">
+                    <input type="submit" value="登录">
+                </div>  
+                <div class="login"> 
+                    <a href="">手机号登录</a>
+                    <a href="">忘记密码</a>
+                </div>
+                <div class="last">
+                    <input type="checkbox" checked >
+                    <label for="xieyi" style="font-size: 10px;" >同意并遵守服务协议和服务隐私</label>
+                </div>
+            </form>
+        </div>
+        <!-- 主要内容end -->
+
+        <!-- 页脚stare -->
+        <div id="footer">
+            <img src="./picture/footer.png" alt="footer">
+            <p id="footer-p">隐私政策 | 关于我们 | 用户协议 |  App下载 | 使用说明<br>
+                合作专栏 呲呲咔咔 英达 拇指家族<br>
+                友情链接 <a href="">动漫评论</a> <a href="">异次元</a> <a href="">漫展</a> <a href="">高校动漫网</a> <a href="">二次元现场</a><br>
+                不良信息举报电话:12312312312 | 举报邮箱:ecy@zzz.com| 客服微信:yuanyuann丨 行政办公地址:将次元打开之地<br>
+            </p>
+            <div></div>
+        </div>
+        <!-- 页脚end -->
+    </div>
+</template>
