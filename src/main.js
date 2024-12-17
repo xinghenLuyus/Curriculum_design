@@ -1,6 +1,7 @@
-const { createApp } = require('vue');
-const App = require('./App.vue');
-const router = require('./router/index.js');
-import './assets/css/home.css';
+import { createApp } from 'vue'
+import router from './router/router'
+import App from './App.vue'
 
-createApp(App).mount('#app');
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
