@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <MainNavbar />
+    <HoHome />
     <router-view />
   </div>
 </template>
 
 <script>
-import MainNavbar from './components/MainNavbar.vue';
+import HoHome from './components/HoHome.vue';
+// import Navbar from './components/Navbar.vue';
 
 export default {
   name: 'App',
   components: {
-    MainNavbar,
+    HoHome
   }
 }
 </script>
+
+
 
 <style>
 @import './assets/css/home.css';
