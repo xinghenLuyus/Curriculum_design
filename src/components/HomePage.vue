@@ -6,7 +6,7 @@
       <nav>
         <router-link to="/">首页</router-link>
         <router-link to="/recommend">推荐</router-link>
-        <router-link to="/category">分类</router-link>
+        <router-link to="/classify">分类</router-link>
         <router-link to="/dynamic">动态</router-link>
         <router-link to="/user-center">用户中心</router-link>
       </nav>
