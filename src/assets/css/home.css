@@ -1,15 +1,26 @@
-body{
-    background:url(../picture/背景色.jpg);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-    background-size: cover;  
-    background-repeat: no-repeat;
-    /* background-repeat: no-repeat; */
-}
-
 /* 导航条stare */
+.nav-item {
+    position: relative;
+  }
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0px auto;
+    width: 100%;
+  }
+  .dropdown a {
+    display: block;
+    padding: 10px;
+    white-space: nowrap;
+  }
+
 #navbar {
     display: flex; 
     justify-content: space-between;
@@ -18,6 +29,7 @@ body{
     padding: 10px 20px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     font-size: 24px;
+    font-weight: bold;
 }
 #logo {
     margin-right: 20px; 
@@ -58,6 +70,11 @@ body{
     width: 100%;
     height: auto;
 }
+#banner img {
+    width: 100%;
+    height: auto;
+  }
+
 /* 大屏end */
 
 /* 页脚stare */
@@ -131,6 +148,11 @@ body{
 /* 盒子end */
 
 /* 画师stare */
+#icon-tabel img {
+    transition: opacity 0.5s;
+  }
+
+
 #icon-tabel{
     width: 100%;
     border-collapse: collapse;
@@ -166,6 +188,27 @@ body{
 /* 画师end */
 
 /* 标签stare */
+#biaoqian td {
+    position: relative;
+  }
+  
+  #biaoqian img {
+    transition: opacity 0.5s;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    color: rgb(19, 16, 199);
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+
 #biaoqian {
     width: 100%;
 }
@@ -255,14 +298,18 @@ body{
     font-weight: bold;
     font-size: 18px;
 }
-#rounded-rect>a:hover{
-    background-color: #f0f0f0; 
-    border-radius: 4px; 
-    font-size: 20px;
-}
 /* 中间选区end        */
 
 /* 自适应stare */
+@media (max-width: 900px){
+    #activity1,
+    #activity2,
+    #activity3 {
+        width: 15%;
+        font-size: 12px;
+    }
+}
+    
 @media (max-width: 768px) {
     #navbar {
         flex-direction: row; 
@@ -289,7 +336,8 @@ body{
     #container {
         flex-direction: row; 
         flex-wrap: wrap; 
-        justify-content: center; 
+        justify-content: center;
+        font-size: 12px; 
     }
     #rounded-rect {
         width: 25%;
@@ -318,9 +366,9 @@ body{
     #activity2,
     #activity3 {
         width: 15%;
-        margin: 10px 5px;
+        margin: 2px 2px;
         float: left;
-        font-size: 10px;
+        font-size: 8px;
         background-size: cover;  
         background-position: center; 
         background-repeat: no-repeat;
@@ -344,6 +392,12 @@ body{
         float: left;
     }
     #icon-tabel th p{
+        font-size: 10px;
+    }
+    .dropdown {
+        font-size: 10px;
+      }
+    .overlay-text {
         font-size: 10px;
     }
 }

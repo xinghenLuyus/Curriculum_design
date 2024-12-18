@@ -20,24 +20,14 @@ const router = createRouter({
       component: HomePage
     },
     {
-      path: '/login',
-      name: 'LoginPage',
-      component: LoginPage
-    },
-    {
-      path: '/user-center',
-      name: 'UserPage',
-      component: UserPage
+      path: '/classify',
+      name: 'ClassifyPage',
+      component: ClassifyPage
     },
     {
       path: '/create-center',
       name: 'CreativePage',
       component: CreativePage
-    },
-    {
-      path: '/classify',
-      name: 'ClassifyPage',
-      component: ClassifyPage
     },
     {
       path: '/dynamic',
@@ -50,6 +40,11 @@ const router = createRouter({
       component: EntrustPage
     },
     {
+      path: '/login',
+      name: 'LoginPage',
+      component: LoginPage
+    },
+    {
       path: '/recommend',
       name: 'RecomPage',
       component: RecomPage
@@ -58,7 +53,12 @@ const router = createRouter({
       path: '/share',
       name: 'SharePage',
       component: SharePage
-    }
+    },
+    {
+      path: '/user-center',
+      name: 'UserPage',
+      component: UserPage
+    },
   ]
 })
 
