@@ -1,8 +1,8 @@
 /* 导航条stare */
 .nav-item {
     position: relative;
-  }
-  .dropdown {
+}
+.dropdown {
     position: absolute;
     top: 100%;
     left: 0;
@@ -14,12 +14,12 @@
     text-align: center;
     margin: 0px auto;
     width: 100%;
-  }
-  .dropdown a {
+}
+.dropdown a {
     display: block;
     padding: 10px;
     white-space: nowrap;
-  }
+}
 
 #navbar {
     display: flex; 
@@ -190,13 +190,13 @@
 /* 标签stare */
 #biaoqian td {
     position: relative;
-  }
+}
   
-  #biaoqian img {
+#biaoqian img {
     transition: opacity 0.5s;
-  }
+}
   
-  .overlay-text {
+.overlay-text {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -206,7 +206,7 @@
     color: rgb(19, 16, 199);
     font-size: 24px;
     font-weight: normal;
-  }
+}
 
 
 #biaoqian {
