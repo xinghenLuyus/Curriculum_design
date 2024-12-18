@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/components/HomePage.vue'
-import LoginPage from '@/components/LoginPage.vue'
 import UserPage from '@/components/UserPage.vue'
 import ClassifyPage from '@/components/ClassifyPage.vue'
 import EntrustPage from '@/components/EntrustPage.vue'
@@ -8,6 +7,7 @@ import RecomPage from '@/components/RecomPage.vue'
 import CreativePage from '@/components/CreativePage.vue'
 import DynamicPage from '@/components/DynamicPage.vue'
 import SharePage from '@/components/SharePage.vue'
+import LoginPage from '@/components/LoginPage.vue'
 
 const routerHistory = createWebHistory()
 

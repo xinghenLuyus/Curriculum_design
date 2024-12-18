@@ -6,7 +6,9 @@
 </template>
 
 <script>
+import ClassifyPage from './components/ClassifyPage.vue';
 import HomePage from './components/HomePage.vue';
+import LoginPage from './components/LoginPage.vue';
 
 export default {
   name: 'App',

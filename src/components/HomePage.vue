@@ -22,15 +22,15 @@
     <div id="container">
       <div id="rounded-rect">
         <img src="@/assets/picture/图标/05.png" alt="">
-        <router-link to="/commission">委托约稿</router-link>
+        <router-link to="/entrust">委托约稿</router-link>
       </div>
       <div id="rounded-rect">
         <img src="@/assets/picture/图标/06.png" alt="">
-        <router-link to="/creation-center">创作中心</router-link>
+        <router-link to="/create-center">创作中心</router-link>
       </div>
       <div id="rounded-rect">
         <img src="@/assets/picture/图标/07.png" alt="">
-        <router-link to="/fan-share">同人分享</router-link>
+        <router-link to="/share">同人分享</router-link>
       </div>
     </div>
     <!-- 中间选区end -->
