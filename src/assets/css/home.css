@@ -21,7 +21,11 @@
     white-space: nowrap;
 }
 
+/* 导航条start */
 #navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex; 
     justify-content: space-between;
     align-items: center; 
@@ -30,6 +34,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     font-size: 24px;
     font-weight: bold;
+    z-index: 1000; /* 确保导航条在最上层 */
 }
 #logo {
     margin-right: 20px; 
@@ -65,8 +70,15 @@
 }
 /* 导航条end */
 
+/* 为了避免导航条遮挡页面内容，添加上边距 */
+body {
+    margin-top: 70px; /* 根据导航条的高度进行调整 */
+}
+/* 导航条end */
+
 /* 大屏stare */
 #banner img{
+    margin-top: 8%;
     width: 100%;
     height: auto;
 }
