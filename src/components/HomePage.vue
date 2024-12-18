@@ -156,7 +156,7 @@
         活动
       </div>
       <div id="box2">
-        <div id="activity1">
+        <div id="activity1"  @mouseover="zoomIn($event)" @mouseleave="zoomOut($event)">
           <table>
             <tr>
               <th id="la2">进行中</th>
@@ -171,7 +171,7 @@
             </tr>
           </table>
         </div>
-        <div id="activity2">
+        <div id="activity2"  @mouseover="zoomIn($event)" @mouseleave="zoomOut($event)">
           <table>
             <tr>
               <th id="la2">进行中</th>
@@ -186,7 +186,7 @@
             </tr>
           </table>
         </div>
-        <div id="activity3">
+        <div id="activity3"  @mouseover="zoomIn($event)" @mouseleave="zoomOut($event)">
           <table>
             <tr>
               <th id="la2">待开放</th>
@@ -269,11 +269,11 @@ export default {
     },
     zoomIn(event) {
       event.target.style.transition = 'transform 0.3s';
-      event.target.style.transform = 'scale(1.2)';
+      event.target.style.transform = 'scale(1.1)';
     },
     zoomOut(event) {
       event.target.style.transition = 'transform 0.3s';
-      event.target.style.transform = 'scale(0.8)';
+      event.target.style.transform = 'scale(1)';
     },
     showText(event) {
       const img = event.currentTarget.querySelector('img');
