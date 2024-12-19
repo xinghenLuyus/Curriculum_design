@@ -60,7 +60,12 @@
                             </table>
                         </div>
                         <p id="p1" style="margin: 2%;">|最新发布创作</p>
-                        <div id="pic-1"><img src="@/assets/picture/创作中心/4.jpg" alt="最新发布" @click="openImageViewer('../assets/picture/创作中心/4.jpg')"></div>
+                        <div id="pic-1"><img src="@/assets/picture/创作中心/4.jpg" alt="最新发布" @click="openImageViewer(require('@/assets/picture/创作中心/4.jpg'))"></div>
+                        <vue-easy-lightbox
+                            :visible="visible"
+                            :imgs="imgs"
+                            @hide="handleHide"
+                        />
                         <p id="p2" style="margin-left: 5%;">发布于2024年6月1日</p>
                     </div>
                 </div>
@@ -68,9 +73,9 @@
                     <p id="p1" style="margin-left: 5%;">|创作灵感tip</p>
                     <hr>
                     <p id="p3" style="margin-left: 5%;">热门活动</p>
-                    <div id="hot-pic"><img src="@/assets/picture/创作中心/绘.jpg" alt="热门活动" @click="openImageViewer('../assets/picture/创作中心/绘.jpg')"></div>
+                    <div id="hot-pic"><img src="@/assets/picture/创作中心/绘.jpg" alt="热门活动" @click="openImageViewer(require('@/assets/picture/创作中心/绘.jpg'))"></div>
                     <p id="p3" style="margin-left: 5%;">经典话题</p>
-                    <div id="hot-pic"><img src="@/assets/picture/创作中心/5.png" alt="经典话题" @click="openImageViewer('../assets/picture/创作中心/5.png')"></div>
+                    <div id="hot-pic"><img src="@/assets/picture/创作中心/5.png" alt="经典话题" @click="openImageViewer(require('@/assets/picture/创作中心/5.png'))"></div>
                 </div>
             </div>
             
@@ -116,12 +121,16 @@
 </template>
   
 <script>
+import VueEasyLightbox from 'vue-easy-lightbox'
 export default {
     name: 'CreativePage',
+    components: {
+    VueEasyLightbox
+  },
     data() {
         return {
-            imageViewerVisible: false,
-            currentImage: ''
+            visible: false,
+            imgs: []
         };
     },
     methods: {
@@ -133,13 +142,12 @@ export default {
             event.target.style.transition = 'transform 0.3s';
             event.target.style.transform = 'scale(1)';
         },
-        openImageViewer(image) {
-            this.currentImage = image;
-            this.imageViewerVisible = true;
+        openImageViewer(imagePath) {
+            this.imgs = [imagePath]
+            this.visible = true
         },
-        closeImageViewer() {
-            this.imageViewerVisible = false;
-            this.currentImage = '';
+        handleHide() {
+            this.visible = false
         },
         enlargeImage(event) {
             event.target.style.transition = 'transform 0.3s';
@@ -149,7 +157,7 @@ export default {
             event.target.style.transition = 'transform 0.3s';
             event.target.style.transform = 'scale(1)';
         }
-    }
+    },
 }
 </script>
   
