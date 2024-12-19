@@ -10,23 +10,26 @@
                     <hr>
                     <div id="cz-icon">
                         <div id="icon-pic"><img src="@/assets/picture/图标/29.png" alt=""></div>
-                        <p id="p5">首页</p>
+                        <!-- <router-link to="/" id="re-tu"><p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">首页</p></router-link> -->
+                        <p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">
+                            <router-link to="/" id="re-turn">首页</router-link>
+                        </p>
                     </div>
                     <div id="cz-icon">
                         <div id="icon-pic"><img src="@/assets/picture/图标/30.png" alt=""></div>
-                        <p id="p5">创作管理</p>
+                        <p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">创作管理</p>
                     </div>
                     <div id="cz-icon">
                         <div id="icon-pic"><img src="@/assets/picture/图标/28.png" alt=""></div>
-                        <p id="p5">数据看板</p>
+                        <p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">数据看板</p>
                     </div>
                     <div id="cz-icon">
                         <div id="icon-pic"><img src="@/assets/picture/图标/27.png" alt=""></div>
-                        <p id="p5">创作学院</p>
+                        <p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">创作学院</p>
                     </div>
                     <div id="cz-icon">
                         <div id="icon-pic"><img src="@/assets/picture/图标/18.png" alt=""></div>
-                        <p id="p5">交流大厅</p>
+                        <p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">交流大厅</p>
                     </div>
                 </div>
             </div>
@@ -103,7 +106,17 @@
   
 <script>
 export default {
-    name: 'CreativePage'
+    name: 'CreativePage',
+    methods: {
+        enlargeText(event) {
+            event.target.style.transition = 'transform 0.3s';
+            event.target.style.transform = 'scale(1.1)';
+        },
+        resetText(event) {
+            event.target.style.transition = 'transform 0.3s';
+            event.target.style.transform = 'scale(1)';
+        }
+    }
 }
 </script>
   

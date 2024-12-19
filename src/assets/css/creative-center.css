@@ -38,6 +38,15 @@ body {
 /* 页脚end */
 
 /* 主内容stare */
+#re-turn{
+    text-decoration: none;
+    color: black;
+}
+#cz-icon p {
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
 #main-top,#bottom{
     display: flex;
 }
@@ -182,6 +191,9 @@ body {
 #cz-icon>p{
     width: 80%;
     margin: auto 0px;
+}
+#cz-icon p {
+    transition: transform 0.3s;
 }
 #bot-pic{
     width: 100%;

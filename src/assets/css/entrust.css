@@ -36,11 +36,15 @@ body {
 
 /* 头部stare */
 #header {
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
     padding: 10px 20px;
+    z-index: 1000; /* 确保头部区域在最上层 */
 }
 #return {
     width: 5%;
@@ -54,6 +58,7 @@ body {
 
 /* 主要内容stare */
 #main {
+    margin-top: 8%;
     background-image: url(../picture/委托约稿/背景.jpg);
     display: flex;
     justify-content: center; /* 水平方向居中对齐 */

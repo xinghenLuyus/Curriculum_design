@@ -17,7 +17,8 @@
         <!-- 头部end -->
     
         <!-- 作品集start -->
-        <div id="works">
+         <div id="work-all">
+            <div id="works">
             <a name="work1"></a>
             <div id="label">作品集</div>
             <div id="works-inside">
@@ -32,9 +33,9 @@
                 <p id="part1-p">67</p>
                 <img src="@/assets/picture/图标/点赞.png" alt="" id="work-icon">
                 <p id="part1-p">90</p>
-                </div>
-                <hr>
-                <div id="user">
+            </div>
+            <hr>
+            <div id="user">
                 <div id="user-left">
                     <img src="@/assets/picture/头像/1.jpg" alt="">
                     <p id="nichen">花子枯</p>
@@ -177,6 +178,9 @@
             </div>
         </div>
         <!-- 漫画集end -->
+
+         </div>
+        
     
         <!-- 页脚start -->
         <div id="footer">

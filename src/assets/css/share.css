@@ -38,6 +38,10 @@ body {
 /* 页脚end */
 
 /* 导航条stare */
+
+#navbar nav {
+    display: flex; 
+}
 #navbar {
     display: flex;
     align-items: center;
@@ -46,6 +50,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 24px;
 }
+
 #navbar a {
     text-decoration: none;
     color: black;
@@ -66,6 +71,8 @@ body {
     align-items: center;
     background-color: white;
 }
+
+
 #logo{
     width: 10%;
 }

@@ -1,8 +1,8 @@
-body {
+#dynamic{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-image: url(../picture/动态页面/动态背景.jpg);
+    background-image: url(@/assets/picture/动态页面/动态背景.jpg);
     background-size: cover;  
     background-repeat: no-repeat;
     font-family: Arial, sans-serif;
@@ -168,6 +168,26 @@ body {
 /* 头部end */
 
 /* 中间区域stare */
+#mid-part {
+    position: relative;
+    text-align: center;
+}
+#mid-part p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    display: none;
+}
+#mid-part:hover p {
+    display: block;
+}
+#mid-part:hover img {
+    display: none;
+}
+
+
 #middle{
     display: flex;
     justify-content: space-around;
@@ -207,6 +227,7 @@ body {
     font-size: 12px;
     text-align: center;
     white-space: nowrap;
+    color: grey;
 }
 #all{
     background-color: white;
@@ -288,7 +309,7 @@ body {
     width:10%;
     float: left;
 }
-#p4{
+#p4,#p-1{
     font-size: 12px;
     margin-left: 2%;
     color: grey;
@@ -308,6 +329,9 @@ body {
 
 /* 自适应stare */
 @media (max-width: 768px) {
+    #all>p{
+        font-size: 12px;
+    }
     #footer-p {
         font-size: 8px;
     }
@@ -329,7 +353,7 @@ body {
     #p3{
         font-size: 8px;
     }
-    #p4{
+    #p4,#p-1{
         font-size: 8px;
     }
     #button-more{

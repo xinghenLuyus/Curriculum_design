@@ -131,6 +131,10 @@ body {
 /* 盒子模型end */
 
 /* 作品集stare */
+#work-all{
+    margin-top: 4%;
+}
+
 #works {
     background-color: rgb(215, 215, 215);
     width: 100%;
@@ -220,6 +224,9 @@ body {
 
 /* 自适应stare */
 @media (max-width: 768px) {
+    #work-all{
+        margin-top: 8%;
+    }
     #footer-p {
         font-size: 8px;
     }

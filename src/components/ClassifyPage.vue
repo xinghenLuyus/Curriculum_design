@@ -184,17 +184,17 @@
         event.target.style.transition = 'transform 0.3s';
         event.target.style.transform = 'scale(1)';
       },
-    showText(event) {
-      const img = event.currentTarget.querySelector('img');
-      const text = event.currentTarget.querySelector('.overlay-text');
-      img.style.opacity = 0;
-      text.style.opacity = 1;
-    },
-    hideText(event) {
-      const img = event.currentTarget.querySelector('img');
-      const text = event.currentTarget.querySelector('.overlay-text');
-      img.style.opacity = 1;
-      text.style.opacity = 0;
+      showText(event) {
+        const img = event.currentTarget.querySelector('img');
+        const text = event.currentTarget.querySelector('.overlay-text');
+        img.style.opacity = 0;
+        text.style.opacity = 1;
+      },
+      hideText(event) {
+        const img = event.currentTarget.querySelector('img');
+        const text = event.currentTarget.querySelector('.overlay-text');
+        img.style.opacity = 1;
+        text.style.opacity = 0;
     }
       
       

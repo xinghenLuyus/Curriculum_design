@@ -2,29 +2,31 @@
     <div>
         <!-- 头部start -->
         <div id="header">
-        <img src="@/assets/picture/图标/返回.png" alt="" id="return">
-        <img src="@/assets/picture/logo.png" alt="" id="logo">
+            <div>
+                <router-link to="/" id="return"><img src="@/assets/picture/图标/返回.png" alt="" id="return"></router-link>
+            </div>
+            <img src="@/assets/picture/logo.png" alt="" id="logo">
         </div>
         <!-- 头部end -->
 
         <!-- 主要内容start -->
         <div id="main">
         <div id="container">
-            <textarea type="text" placeholder="请输入您的委托需求" required id="need"></textarea>
+            <textarea v-model="textareaContent" placeholder="请输入您的委托需求" required id="need"></textarea>
             <h1>委托用途</h1>
             <div id="wt">
-                <button>OC/自设</button>
-                <button>壁纸封面</button>
-                <button>Q版头像</button>
-                <button>同人插画</button>
-                <button>角色立绘</button>
-                <button>自定义</button>
+                <button :class="{ active: activeButtons.includes('OC/自设') }" @click="toggleText('OC/自设')">OC/自设</button>
+                <button :class="{ active: activeButtons.includes('壁纸封面') }" @click="toggleText('壁纸封面')">壁纸封面</button>
+                <button :class="{ active: activeButtons.includes('Q版头像') }" @click="toggleText('Q版头像')">Q版头像</button>
+                <button :class="{ active: activeButtons.includes('同人插画') }" @click="toggleText('同人插画')">同人插画</button>
+                <button :class="{ active: activeButtons.includes('角色立绘') }" @click="toggleText('角色立绘')">角色立绘</button>
+                <button >自定义</button>
             </div>
             <h1>使用权限</h1>
             <div id="qx">
-                <button>买断</button>
-                <button>商用</button>
-                <button>独占</button>
+                <button :class="{ active: activeButtons.includes('买断') }" @click="toggleText('买断')">买断</button>
+                <button :class="{ active: activeButtons.includes('商用') }" @click="toggleText('商用')">商用</button>
+                <button :class="{ active: activeButtons.includes('独占') }" @click="toggleText('独占')">独占</button>
             </div>
             <h1>付费设定</h1>
             <div id="set-up">
@@ -56,9 +58,38 @@
 </template>
   
 <script>
-    export default {
-    name: 'EntrustPage'
+import { ref } from 'vue';
+
+export default {
+    name: 'EntrustPage',
+    setup() {
+        const textareaContent = ref('');
+        const activeButtons = ref([]);
+
+        const toggleText = (text) => {
+            if (textareaContent.value.includes(text)) {
+                textareaContent.value = textareaContent.value.replace(text + ' ', '');
+                activeButtons.value = activeButtons.value.filter(item => item !== text);
+            } else {
+                textareaContent.value += text + ' ';
+                activeButtons.value.push(text);
+            }
+        };
+
+        return {
+            textareaContent,
+            activeButtons,
+            toggleText
+        };
+    }
 }
 </script>
   
 <style scoped src="@/assets/css/entrust.css"></style>
+
+<style scoped>
+.active {
+    background-color: blue;
+    color: white;
+}
+</style>

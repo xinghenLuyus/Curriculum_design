@@ -1,24 +1,53 @@
 <template>
-    <!-- 头部stare -->
-    <div id="header">
-        <img src="@/assets/picture/logo.png" alt="" id="logo">
-        <div id="search">
-            <input type="text" placeholder="搜索">
+    <div id="head-nav">
+        <!-- 头部stare -->
+        <div id="header">
+            <img src="@/assets/picture/logo.png" alt="" id="logo">
+            <div id="search">
+                <input type="text" placeholder="搜索">
+            </div>
         </div>
-    </div>
-    <!-- 头部end -->
+        <!-- 头部end -->
 
-    <!-- 导航条stare -->
-    <div id="navbar">
-        <nav>
-            <a href="@/assets/首页.html" target="_blank">首页</a>
-            <a href="@/assets/推荐页面.html" target="_blank">推荐</a>
-            <a href="@/assets/分类页面.html" target="_blank">分类</a>
-            <a href="@/assets/动态页面.html" target="_blank">动态</a>
-            <a href="@/assets/用户中心.html" target="_blank">用户中心</a>
-        </nav>
+        <!-- 导航条stare -->
+        <div id="navbar">
+            <nav>
+                <div class="nav-item">
+                <router-link to="/">首页</router-link>
+                </div>
+                <div class="nav-item" @mouseover="showDropdown('recommend')" @mouseleave="hideDropdown('recommend')">
+                <router-link to="/recommend">推荐</router-link>
+                <div class="dropdown" v-if="dropdowns.recommend">
+                    <router-link to="/recommend/sub1">作品集</router-link>
+                    <router-link to="/recommend/sub2">作者集</router-link>
+                </div>
+                </div>
+                <div class="nav-item" @mouseover="showDropdown('classify')" @mouseleave="hideDropdown('classify')">
+                <router-link to="/classify">分类</router-link>
+                <div class="dropdown" v-if="dropdowns.classify">
+                    <router-link to="/classify/sub1">原创区</router-link>
+                    <router-link to="/classify/sub2">二创区</router-link>
+                </div>
+                </div>
+                <div class="nav-item" @mouseover="showDropdown('dynamic')" @mouseleave="hideDropdown('dynamic')">
+                <router-link to="/dynamic">动态</router-link>
+                <div class="dropdown" v-if="dropdowns.dynamic">
+                    <router-link to="/dynamic/sub1">社区</router-link>
+                    <router-link to="/dynamic/sub2">发布</router-link>
+                </div>
+                </div>
+                <div class="nav-item" @mouseover="showDropdown('userCenter')" @mouseleave="hideDropdown('userCenter')">
+                <router-link to="/user-center">用户中心</router-link>
+                <div class="dropdown" v-if="dropdowns.userCenter">
+                    <router-link to="/user-center/sub1">我的</router-link>
+                    <router-link to="/user-center/sub2">设置</router-link>
+                </div>
+                </div>
+            </nav>
+        </div>
+        <!-- 导航条end -->
     </div>
-    <!-- 导航条end -->
+    
 
     <!-- 主内容上半部分stare -->
     <div id="main-top">
@@ -232,7 +261,23 @@
 
 <script>
 export default {
-    name: 'SharePage'
+    name: 'SharePage',
+  data() {
+    return {
+      dropdowns: {
+        recommend: false,
+        classify: false,
+        dynamic: false,
+        userCenter: false,}
+        }
+    },
+    methods: {
+    showDropdown(menu) {
+      this.dropdowns[menu] = true;},
+    hideDropdown(menu) {
+      this.dropdowns[menu] = false;}
+    }
+    
 }
 </script>
 
