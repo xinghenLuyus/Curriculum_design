@@ -1,12 +1,31 @@
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-    background-image: url(../picture/背景色.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+#head-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000; /* 确保头部区域在最上层 */
 }
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+#main-content {
+    margin-top: 120px; /* 根据头部和导航条的总高度进行调整 */
+}
+#main{
+    margin-top: 12%;
+}
+
 
 /* 页脚stare */
 #footer {
@@ -38,6 +57,28 @@ body {
 /* 页脚end */
 
 /* 导航条stare */
+.nav-item {
+    position: relative;
+}
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0px auto;
+    width: 100%;
+}
+.dropdown a {
+    display: block;
+    padding: 10px;
+    white-space: nowrap;
+}
+
 
 #navbar nav {
     display: flex; 
@@ -314,12 +355,27 @@ body {
 /* 主内容下半部分end */
 
 /* 自适应stare */
+
 @media (max-width: 768px) {
+    #main{
+        margin-top: 15%;
+    }
     #footer-p {
         font-size: 8px;
     }
     #navbar {
-        font-size: 16px;
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        font-size: 12px;
+    }
+    #navbar nav {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
+    #navbar a {
+        margin: 1px 1px;
     }
     #user-p1,#yhzx,#p1,#p2,#p3,#p5{
         font-size: 10px;
@@ -336,6 +392,12 @@ body {
     #send>input{
         font-size: 12px;
         padding: 3px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    #main{
+        margin-top: 20%;
     }
 }
 /* 自适应end */

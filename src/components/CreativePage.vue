@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- 主内容stare -->
+        <!-- 主内容start -->
         <div id="main-top">
             <!-- 左边 -->
             <div id="main-left">
@@ -10,7 +10,6 @@
                     <hr>
                     <div id="cz-icon">
                         <div id="icon-pic"><img src="@/assets/picture/图标/29.png" alt=""></div>
-                        <!-- <router-link to="/" id="re-tu"><p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">首页</p></router-link> -->
                         <p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">
                             <router-link to="/" id="re-turn">首页</router-link>
                         </p>
@@ -61,7 +60,7 @@
                             </table>
                         </div>
                         <p id="p1" style="margin: 2%;">|最新发布创作</p>
-                        <div id="pic-1"><img src="@/assets/picture/创作中心/4.jpg" alt=""></div>
+                        <div id="pic-1"><img src="@/assets/picture/创作中心/4.jpg" alt="最新发布" @click="openImageViewer('@/assets/picture/创作中心/4.jpg')"></div>
                         <p id="p2" style="margin-left: 5%;">发布于2024年6月1日</p>
                     </div>
                 </div>
@@ -69,9 +68,9 @@
                     <p id="p1" style="margin-left: 5%;">|创作灵感tip</p>
                     <hr>
                     <p id="p3" style="margin-left: 5%;">热门活动</p>
-                    <div id="hot-pic"><img src="@/assets/picture/创作中心/绘.jpg" alt=""></div>
+                    <div id="hot-pic"><img src="@/assets/picture/创作中心/绘.jpg" alt="热门活动" @click="openImageViewer('@/assets/picture/创作中心/绘.jpg')"></div>
                     <p id="p3" style="margin-left: 5%;">经典话题</p>
-                    <div id="hot-pic"><img src="@/assets/picture/创作中心/5.png" alt=""></div>
+                    <div id="hot-pic"><img src="@/assets/picture/创作中心/5.png" alt="经典话题" @click="openImageViewer('@/assets/picture/创作中心/5.png')"></div>
                 </div>
             </div>
             
@@ -90,7 +89,13 @@
         </div>
         <!-- 主内容end -->
 
-        <!-- 页脚stare -->
+        <!-- 图片查看器start -->
+        <div v-if="imageViewerVisible" id="image-viewer" @click="closeImageViewer">
+            <img :src="currentImage" alt="查看图片">
+        </div>
+        <!-- 图片查看器end -->
+
+        <!-- 页脚start -->
         <div id="footer">
             <img src="@/assets/picture/footer.png" alt="footer">
             <p id="footer-p">隐私政策 | 关于我们 | 用户协议 |  App下载 | 使用说明<br>
@@ -107,6 +112,12 @@
 <script>
 export default {
     name: 'CreativePage',
+    data() {
+        return {
+            imageViewerVisible: false,
+            currentImage: ''
+        };
+    },
     methods: {
         enlargeText(event) {
             event.target.style.transition = 'transform 0.3s';
@@ -115,6 +126,14 @@ export default {
         resetText(event) {
             event.target.style.transition = 'transform 0.3s';
             event.target.style.transform = 'scale(1)';
+        },
+        openImageViewer(image) {
+            this.currentImage = image;
+            this.imageViewerVisible = true;
+        },
+        closeImageViewer() {
+            this.imageViewerVisible = false;
+            this.currentImage = '';
         }
     }
 }
