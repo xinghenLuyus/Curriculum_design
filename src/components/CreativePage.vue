@@ -60,7 +60,7 @@
                             </table>
                         </div>
                         <p id="p1" style="margin: 2%;">|最新发布创作</p>
-                        <div id="pic-1"><img src="@/assets/picture/创作中心/4.jpg" alt="最新发布" @click="openImageViewer('@/assets/picture/创作中心/4.jpg')"></div>
+                        <div id="pic-1"><img src="@/assets/picture/创作中心/4.jpg" alt="最新发布" @click="openImageViewer('../assets/picture/创作中心/4.jpg')"></div>
                         <p id="p2" style="margin-left: 5%;">发布于2024年6月1日</p>
                     </div>
                 </div>
@@ -68,9 +68,9 @@
                     <p id="p1" style="margin-left: 5%;">|创作灵感tip</p>
                     <hr>
                     <p id="p3" style="margin-left: 5%;">热门活动</p>
-                    <div id="hot-pic"><img src="@/assets/picture/创作中心/绘.jpg" alt="热门活动" @click="openImageViewer('@/assets/picture/创作中心/绘.jpg')"></div>
+                    <div id="hot-pic"><img src="@/assets/picture/创作中心/绘.jpg" alt="热门活动" @click="openImageViewer('../assets/picture/创作中心/绘.jpg')"></div>
                     <p id="p3" style="margin-left: 5%;">经典话题</p>
-                    <div id="hot-pic"><img src="@/assets/picture/创作中心/5.png" alt="经典话题" @click="openImageViewer('@/assets/picture/创作中心/5.png')"></div>
+                    <div id="hot-pic"><img src="@/assets/picture/创作中心/5.png" alt="经典话题" @click="openImageViewer('../assets/picture/创作中心/5.png')"></div>
                 </div>
             </div>
             
@@ -81,9 +81,15 @@
             <div id="bot-right">
                 <p id="p1" style="margin-left: 1%;">|创作学院热门教学</p>
                 <div id="bot-pic">
-                    <div id="pic-img"><img src="@/assets/picture/创作中心/1.jpg" alt=""></div>
-                    <div id="pic-img"><img src="@/assets/picture/创作中心/2.jpg" alt=""></div>
-                    <div id="pic-img"><img src="@/assets/picture/创作中心/3.jpg" alt=""></div>
+                    <div id="pic-img">
+                        <img src="@/assets/picture/创作中心/1.jpg" alt="" @mouseover="enlargeImage($event)" @mouseleave="resetImage($event)">
+                    </div>
+                    <div id="pic-img">
+                        <img src="@/assets/picture/创作中心/2.jpg" alt="" @mouseover="enlargeImage($event)" @mouseleave="resetImage($event)">
+                    </div>
+                    <div id="pic-img">
+                        <img src="@/assets/picture/创作中心/3.jpg" alt="" @mouseover="enlargeImage($event)" @mouseleave="resetImage($event)">
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,6 +140,14 @@ export default {
         closeImageViewer() {
             this.imageViewerVisible = false;
             this.currentImage = '';
+        },
+        enlargeImage(event) {
+            event.target.style.transition = 'transform 0.3s';
+            event.target.style.transform = 'scale(1.1)';
+        },
+        resetImage(event) {
+            event.target.style.transition = 'transform 0.3s';
+            event.target.style.transform = 'scale(1)';
         }
     }
 }

@@ -278,7 +278,7 @@ export default {
       this.dropdowns[menu] = true;},
     hideDropdown(menu) {
       this.dropdowns[menu] = false;}
-    }
+    },
     
 }
 </script>
