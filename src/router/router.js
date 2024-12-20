@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import StarePage from '@/components/StarePage.vue'
 import HomePage from '@/components/HomePage.vue'
 import UserPage from '@/components/UserPage.vue'
 import ClassifyPage from '@/components/ClassifyPage.vue'
@@ -14,6 +15,11 @@ const routerHistory = createWebHistory()
 const router = createRouter({
   history: routerHistory,
   routes: [
+    {
+      path: '/stare',
+      name: 'StarePage',
+      component: StarePage
+    },
     {
       path: '/',
       name: 'HomePage',
