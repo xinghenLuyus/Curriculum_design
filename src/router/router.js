@@ -9,6 +9,7 @@ import CreativePage from '@/components/CreativePage.vue'
 import DynamicPage from '@/components/DynamicPage.vue'
 import SharePage from '@/components/SharePage.vue'
 import LoginPage from '@/components/LoginPage.vue'
+// import SidentifyPage from '@/components/SidentifyPage.vue'
 
 const routerHistory = createWebHistory()
 
@@ -20,6 +21,11 @@ const router = createRouter({
       name: 'StarePage',
       component: StarePage
     },
+    // {
+    //   path: '/sidentify',
+    //   name: 'SidentifyPage',
+    //   component: SidentifyPage
+    // },
     {
       path: '/home',
       name: 'HomePage',

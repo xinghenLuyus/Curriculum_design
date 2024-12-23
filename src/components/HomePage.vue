@@ -38,10 +38,6 @@
       </nav>
       <div class="nav-item" @mouseover="showDropdown('login')" @mouseleave="hideDropdown('login')">
         <router-link to="/login" id="login">登录</router-link>
-        <div class="dropdown" v-if="dropdowns.login">
-          <router-link to="/user-center/sub1">登录</router-link>
-          <router-link to="/user-center/sub2">注册</router-link>
-        </div>
       </div>
     </div>
     <!-- 导航条end -->
@@ -213,12 +209,7 @@
         友情链接 <router-link to="/anime-review">动漫评论</router-link> <router-link to="/dimension">异次元</router-link> <router-link to="/comic-expo">漫展</router-link> <router-link to="/college-anime">高校动漫网</router-link> <router-link to="/live-2d">二次元现场</router-link><br>
         不良信息举报电话:12312312312 | 举报邮箱:ecy@zzz.com| 客服微信:yuanyuann丨 行政办公地址:将次元打开之地<br>
       </p>
-      <div id="lianjie">
-        <a href="http://www.weibo.com" target="_blank"><img src="@/assets/picture/首页/微博.png" alt="微博"></a>
-        <a href="http://ww.douyin.com" target="_blank"><img src="@/assets/picture/首页/抖音.jpg" alt="抖音"></a>
-        <a href="http://www.baidu.com" target="_blank"><img src="@/assets/picture/首页/百度.jpg" alt="百度"></a>
-        <a href="https://pan.baidu.com/" target="_blank"><img src="@/assets/picture/首页/百度网盘.jpg" alt="百度网盘"></a>
-      </div>
+      <div></div>
     </div>
     <!-- 页脚end -->
   </div>
