@@ -3,7 +3,7 @@
         <!-- 头部start -->
         <div id="header">
             <div id="header-lfet">
-                <router-link to="/" id="return"><img src="@/assets/picture/图标/返回.png" alt="" id="return"></router-link>
+                <router-link to="/home" id="return"><img src="@/assets/picture/图标/返回.png" alt="" id="return"></router-link>
                 <div id="header-button">
                     <button @click="scrollTo('work1')">推荐作品</button>
                     <button @click="scrollTo('work2')">推荐画师</button>

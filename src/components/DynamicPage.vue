@@ -58,7 +58,7 @@
     <!-- 中间区域start -->
     <div id="middle">
       <div id="middle-1">
-        <router-link to="/"><button id="return">返回首页</button></router-link>
+        <router-link to="/home"><button id="return">返回首页</button></router-link>
       </div>
       <div id="middle-2">
         <div id="middle-pic">

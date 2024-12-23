@@ -13,7 +13,7 @@
       <div id="navbar">
         <nav>
           <div class="nav-item">
-            <router-link to="/">首页</router-link>
+            <router-link to="/home">首页</router-link>
           </div>
           <div class="nav-item" @mouseover="showDropdown('recommend')" @mouseleave="hideDropdown('recommend')">
             <router-link to="/recommend">推荐</router-link>

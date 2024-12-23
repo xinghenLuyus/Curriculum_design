@@ -11,7 +11,7 @@
                     <div id="cz-icon">
                         <div id="icon-pic"><img src="@/assets/picture/图标/29.png" alt=""></div>
                         <p id="p5" @mouseover="enlargeText($event)" @mouseleave="resetText($event)">
-                            <router-link to="/" id="re-turn">首页</router-link>
+                            <router-link to="/home" id="re-turn">首页</router-link>
                         </p>
                     </div>
                     <div id="cz-icon">

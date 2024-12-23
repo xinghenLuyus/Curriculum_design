@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-body::after {
+#stare-page::after {
   content: '';
   position: absolute;
   top: 0;
@@ -54,8 +54,9 @@ nav {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-nav a {
+#nav-items {
   font-size: 18px;
+  text-decoration: none;
   font-weight: 500;
   letter-spacing: 2px;
   color: rgb(53, 53, 53);
@@ -74,8 +75,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #16423c;
-  color: white;
+  background-color: white;
 }
 
 nav:hover > a:not(:hover) {
@@ -106,6 +106,7 @@ nav:hover > a:not(:hover) {
   color: white;
   text-align: center;
   margin: -20px 0;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 p {
@@ -268,4 +269,85 @@ nav {
 
 .slider {
   animation: zoomOut 1.2s ease-out forwards;
+}
+
+
+@media (max-width: 1200px) {
+  .title h1 {
+    font-size: 10rem;
+    letter-spacing: 30px;
+  }
+
+  .title h3 {
+    font-size: 1.2rem;
+    letter-spacing: 10px;
+  }
+
+  .cta button {
+    width: 250px;
+    font-size: 16px;
+  }
+
+  .slider i {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title h1 {
+    font-size: 6rem;
+    letter-spacing: 20px;
+  }
+
+  .title h3 {
+    font-size: 1rem;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0,0.3);
+  }
+
+  .cta button {
+    width: 200px;
+    font-size: 14px;
+  }
+
+  .slider i {
+    font-size: 24px;
+  }
+
+  nav {
+    /* flex-direction: column; */
+    gap: 5px;
+    width: 80%;
+  }
+
+  #nav-items {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title h1 {
+    font-size: 4rem;
+    letter-spacing: 10px;
+  }
+
+  .title h3 {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+  }
+
+  .cta button {
+    width: 150px;
+    font-size: 12px;
+  }
+
+  .slider i {
+    font-size: 20px;
+  }
+
+  p {
+    width: 90%;
+    font-size: 12px;
+  }
 }

@@ -3,7 +3,7 @@
         <!-- 头部start -->
         <div id="header">
             <div>
-                <router-link to="/" id="return"><img src="@/assets/picture/图标/返回.png" alt="" id="return"></router-link>
+                <router-link to="/home" id="return"><img src="@/assets/picture/图标/返回.png" alt="" id="return"></router-link>
             </div>
             <img src="@/assets/picture/logo.png" alt="" id="logo">
         </div>

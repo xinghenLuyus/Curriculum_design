@@ -16,12 +16,12 @@ const router = createRouter({
   history: routerHistory,
   routes: [
     {
-      path: '/stare',
+      path: '/',
       name: 'StarePage',
       component: StarePage
     },
     {
-      path: '/',
+      path: '/home',
       name: 'HomePage',
       component: HomePage
     },

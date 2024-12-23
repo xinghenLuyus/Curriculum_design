@@ -2,11 +2,11 @@
   <div id="stare-page">
     <header>
       <nav>
-        <router-link to="/" class="nav-items">首页</router-link>
-        <router-link to="/recommend" class="nav-items">推荐</router-link>
-        <router-link to="/category" class="nav-items">分类</router-link>
-        <router-link to="/dynamic" class="nav-items">动态</router-link>
-        <router-link to="/user-center" class="nav-items">用户中心</router-link>
+        <router-link to="/home" id="nav-items">首页</router-link>
+        <router-link to="/recommend" id="nav-items">推荐</router-link>
+        <router-link to="/category" id="nav-items">分类</router-link>
+        <router-link to="/dynamic" id="nav-items">动态</router-link>
+        <router-link to="/user-center" id="nav-items">用户中心</router-link>
       </nav>
     </header>
 
@@ -28,7 +28,7 @@
       </div>
 
       <div class="cta">
-        <button>
+        <button @click="navigateToHome">
           点击进入
           <i class="fa-solid fa-arrow-right"></i>
         </button>
@@ -43,8 +43,21 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
-  name: 'StarePage'
+  name: 'StarePage',
+  setup() {
+    const router = useRouter();
+
+    const navigateToHome = () => {
+      router.push('/home');
+    };
+
+    return {
+      navigateToHome
+    };
+  }
 }
 </script>
 
