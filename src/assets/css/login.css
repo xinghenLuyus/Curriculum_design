@@ -113,7 +113,7 @@
 /* 导航条end */
 
 /* 大屏stare */
-#banner img{
+#banner {
     margin-top: 7%;
     width: 100%;
     height: auto;
@@ -245,7 +245,7 @@
 
 /* 自适应stare */
 @media (max-width: 768px) {
-    #banner img{
+    #banner {
         margin-top: 10%;}
     #navbar {
         flex-direction: row; 
