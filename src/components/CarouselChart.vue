@@ -1,3 +1,5 @@
+<!-- 图片轮播 -->
+
 <template>
     <div id="CarouselChart">
       <div class="banner">
@@ -118,7 +120,7 @@
     
     .img {
         display: block;
-        height: 60vh;
+        height: 70vh;
         opacity: 1;
         transition: opacity 0.5s ease;
     }
