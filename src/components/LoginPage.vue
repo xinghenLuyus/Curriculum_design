@@ -59,6 +59,10 @@
                     </div>
                 </div>
 
+                <div>
+                  <SidentifyPage/>
+                </div>
+
                 <div class="buttons">    
                     <input type="button" value="注册">
                     <input type="submit" value="登录">
@@ -88,11 +92,12 @@
 
 <script>
 import CarouselChart from './CarouselChart.vue'
-
+import SidentifyPage from './SidentifyPage.vue'
 export default {
     name: 'LoginPage',
     components: {
-      CarouselChart
+      CarouselChart,
+      SidentifyPage
     },
     data() {
         return {
