@@ -2,6 +2,11 @@
 
 .nav-item {
     position: relative;
+    /* x轴向左移动5px */
+    transform: translateX(-60%);
+    margin-left: 15px;
+    
+
 }
 .dropdown {
     position: absolute;
@@ -36,6 +41,8 @@
     font-size: 24px;
     font-weight: bold;
     z-index: 1000; /* 确保导航条在最上层 */
+    /* 字体不许换行 */
+    white-space: nowrap;
 }
 #logo {
     margin-right: 20px; 

@@ -1,12 +1,8 @@
 <template>
     <div>
-      <div id="banner">
-          <CarouselChart/>
-        </div>
-        
         <div id="navbar">
             <img src="@/assets/picture/logo.png" alt="Logo" id="logo">
-            <nav>
+            <nav id="navv">
                 <div class="nav-item">
                     <router-link to="/home">首页</router-link>
                 </div>
@@ -39,43 +35,60 @@
                     </div>
                 </div>
             </nav>
+            <div></div>
         </div>
 
         <div id="main">
             <img src="@/assets/picture/登录界面/登录艺术字.png" alt="" id="ysz">
-            <form class="container">  
-                <div class="input-group">  
-                    <label for="username">用户名</label>  
-                    <input type="text" id="username" placeholder="ID / 手机号 / 邮箱">  
-                </div>  
-                <div class="input-group">  
-                    <label for="password">密码</label>  
-                    <input type="password" id="password" placeholder="请输入您的密码">  
-                </div>  
-                <label for="" style="font-size: 10px;color: grey;float: left;">*若无账号点击“注册” 默认注册一个账号</label>
-                <div class="mima">
-                    <div style="display: flex; justify-content: flex-end;">
-                        <input type="checkbox" class="miam-lable">记住密码
+            <!-- 登录框 -->
+            <div id="login-box">
+                <Form ref="loginForm" :model="form" :rules="rules" >
+                    <div id="user">
+                        <FormItem prop="userName">
+                            <el-input v-model="form.userName" placeholder="请输入用户名" show-password/>
+                        </FormItem>
                     </div>
-                </div>
+                    
+                    <div id="password">
+                        <FormItem prop="password">
+                            <el-input type="password" v-model="form.password" placeholder="请输入密码"/>
+                        </FormItem>
+                    </div>
+                    
+                    <FormItem>
+                        <div style="display:flex" id="atilposition">
+                            <el-input
+                                type="text"
+                                ref="inputCode"
+                                v-model="inputCode"
+                                style="width:175px"
+                                placeholder="请输入验证码"
+                                clearable
+                            ></el-input>
 
-                <div>
-                  <SidentifyPage/>
-                </div>
+                            <span @click="createCode" id="spancode">
+                                    <SidentifyPage :identifyCode="code"></SidentifyPage>
+                            </span>
+                        </div>
+                    </FormItem>
 
-                <div class="buttons">    
-                    <input type="button" value="注册">
-                    <input type="submit" value="登录">
-                </div>  
-                <div class="login"> 
-                    <a href="">手机号登录</a>
-                    <a href="">忘记密码</a>
-                </div>
-                <div class="last">
-                    <input type="checkbox" checked>
-                    <label for="xieyi" style="font-size: 10px;">同意并遵守服务协议和服务隐私</label>
-                </div>
-            </form>
+                    <Button :loading="form.loading" @click="handleSubmit" type="primary"  long class="bottom-size">立即登录</Button>
+                    <div class="login"> 
+                        <a href="">手机号登录</a>
+                        <a href="">忘记密码</a>
+                    </div>
+                    <div class="last">
+                        <input type="checkbox" checked>
+                        <label for="xieyi" style="font-size: 10px;">同意并遵守服务协议和服务隐私</label>
+                    </div>
+                </Form>
+            </div>
+            <!-- 登录框 -->
+            
+        </div>
+
+        <div id="banner">
+          <CarouselChart/>
         </div>
 
         <div id="footer">
@@ -101,6 +114,13 @@ export default {
     },
     data() {
         return {
+            code:'',
+            inputCode:'',
+            form: {
+                userName: '',
+                password: '',
+                loading: false
+            },
             dropdowns: {
                 recommend: false,
                 classify: false,
@@ -130,11 +150,45 @@ export default {
         rotateBanner() {
             this.currentBannerIndex = (this.currentBannerIndex + 1) % this.bannerImages.length;
         },
+        createCode() {
+      let text = "";
+      let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      // 设置验证码长度，
+      for( let i=0; i < 4; i++ ){
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+      }
+      this.code = text
     },
+    handleSubmit () {
+      this.form.loading = true
+      this.$refs.loginForm.validate((valid) => {
+        if (valid) {
+          if(this.inputCode == ''){
+            this.$Message.error('请输入验证码')
+            return
+          }
+          if(this.inputCode.toLowerCase() != this.code.toLowerCase()){
+            this.$Message.error('验证码错误')
+            this.inputCode = ''
+            this.createCode()
+            return
+          }
+          this.$emit('on-success-valid', {
+            userName: this.form.userName,
+            password: this.form.password
+          })
+        } else {
+          this.form.loading = false
+        }
+      })
+    }
+},
     mounted() {
         setInterval(this.rotateBanner, 3000);
+        this.createCode();
     },
 }
 </script>
+
 
 <style scoped src="@/assets/css/login.css"></style>

@@ -120,7 +120,7 @@
     
     .img {
         display: block;
-        height: 70vh;
+        height: 100vh;
         opacity: 1;
         transition: opacity 0.5s ease;
     }
@@ -174,11 +174,11 @@
   
   @media (max-width: 768px) {
     .banner:hover .right-btn {
-    position: absolute;
-    cursor: pointer;
-    top: 50%;
-    right: -150px;
-    width: auto;
+      position: absolute;
+      cursor: pointer;
+      top: 50%;
+      right: -150px;
+      width: auto;
     }
     .img {
       height: 40vh;
