@@ -1,15 +1,14 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-} */
+#login-page{
+    background:url(../picture/登录界面/登录背景.jpg);
+    background-size: cover;  
+    background-repeat: no-repeat;
+}
 
+#navv{
+    transform: translateX(-10%);
+}
 .nav-item {
     position: relative;
-}
-#navv{
-    transform: translateX(-23%);
 }
 .dropdown {
     position: absolute;
@@ -79,16 +78,15 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     font-size: 24px;
     font-weight: bold;
-    z-index: 1000; /* 确保导航条在最上层 */
+    z-index: 1000; 
 }
-#logo {
-    margin-right: 20px; 
+#navbar #logo {
     width: 15%;
-    height: 100%;
-    margin-right: 10px;
 }
 #navbar nav {
-    display: flex; 
+    display: flex;
+    flex-grow: 1; /* 使导航条占据剩余空间 */
+    justify-content: center; /* 在导航条之间均匀分布 */
 }
 #navbar a {
     text-decoration: none; 
@@ -101,18 +99,7 @@
     background-color: #f0f0f0; 
     border-radius: 4px; 
 }
-#navbar a:nth-child(6){width: 100%;}
-#login {
-    margin-left: auto; 
-    font-weight: bold; 
-    padding: 5px 10px; 
-    color: black; 
-    border-radius: 4px; 
-    transition: background-color 0.3s; 
-}
-#login:hover {
-    background-color: #0056b3;
-}
+
 /* 导航条end */
 
 /* 大屏stare */
@@ -156,10 +143,7 @@
 
 /* 主要内容stare */
 #main{
-    background:url(../picture/登录界面/登录背景.jpg);
-    background-size: cover;  
-    background-repeat: no-repeat;
-    padding-top: 70px;
+    padding-top: 8%;
 }
 #ysz{
     width: 45%;
@@ -186,6 +170,9 @@
   width: 30rem;
   margin-bottom: 1rem;
 }
+#user{
+    margin-top: 5%;
+}
 
 #password {
   width: 30rem;
@@ -200,11 +187,6 @@
 .el-button {
   width: 10rem;
 }
-/* #user{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-} */
 
 /* 手机号登录与忘记密码区 */
 .login{
@@ -222,16 +204,57 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#check{
+    float: left;
+}
+#la-xieyi{
+    font-size: 10px;
+    color: grey;
+}
+.bottom-size{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 10px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+#space{
+    margin: 5% 0px;
 }
 /* 主要内容end */
 
+
+
 /* 自适应stare */
+@media (max-width: 900px){
+    #navbar {
+        justify-content: center; 
+        font-size: 18px;
+    }
+    #user,
+    #password {
+        width: 90%;
+    }
+    .el-button {
+        width: 90%;
+    }
+    #atilposition .el-input {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+}
+
 @media (max-width: 768px) {
     #banner {
-        margin-top: 10%;}
+        margin-top: 10%;
+    }
     #navbar {
-        flex-direction: row; 
-        flex-wrap: wrap; 
         justify-content: center; 
         font-size: 12px;
     }
@@ -247,10 +270,7 @@
         font-size: 8px;
     }
     
-    .container {
-        width: 60%;
-        padding: 10px;
-    }
+    
     .input-group input[type="text"],  
     .input-group input[type="password"] {  
         width: calc(100% - 20px);  
@@ -260,19 +280,36 @@
         width: 45%;
         margin: 5px 2.5%;
     }
-    .login {
-        flex-direction: column;
-        align-items: center;
-    }
-    .login a {
-        margin: 5px 0;
-    }
     .last {
         flex-direction: column;
         align-items: flex-start;
     }
     .last label {
         font-size: 8px;
+    }
+    .bottom-size{
+        margin: 0 auto;
+        padding: 5px 5px;
+        font-size: 12px;
+    }
+    #user,
+    #password {
+        width: 100%;
+    }
+    .el-button {
+        width: 100%;
+    }
+    #atilposition {
+        flex-direction: column;
+        align-items: center;
+    }
+    #atilposition .el-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #spancode {
+        width: 100%;
+        text-align: center;
     }
 }
 /* 自适应end */

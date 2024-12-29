@@ -3,6 +3,7 @@
     <!-- 导航条start -->
     <div id="navbar">
       <img src="@/assets/picture/logo.png" alt="Logo" id="logo">
+      
       <nav>
         <div class="nav-item">
           <router-link to="/home">首页</router-link>
@@ -36,9 +37,11 @@
           </div>
         </div>
       </nav>
-      <div class="nav-item" @mouseover="showDropdown('login')" @mouseleave="hideDropdown('login')">
+
+      <div class="nav-login" @mouseover="showDropdown('login')" @mouseleave="hideDropdown('login')">
         <router-link to="/login" id="login">登录</router-link>
       </div>
+
     </div>
     <!-- 导航条end -->
 

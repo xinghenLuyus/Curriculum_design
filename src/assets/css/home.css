@@ -1,12 +1,10 @@
-
-
-.nav-item {
+/* .nav-item {
     position: relative;
-    /* x轴向左移动5px */
     transform: translateX(-60%);
     margin-left: 15px;
-    
-
+} */
+.nav-item {
+    position: relative;
 }
 .dropdown {
     position: absolute;
@@ -40,19 +38,25 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     font-size: 24px;
     font-weight: bold;
-    z-index: 1000; /* 确保导航条在最上层 */
-    /* 字体不许换行 */
+    z-index: 1000; 
     white-space: nowrap;
 }
-#logo {
+
+#navbar #logo {
     margin-right: 20px; 
     width: 15%;
-    height: 100%;
-    margin-right: 10px;
+    height: auto;
 }
+
 #navbar nav {
-    display: flex; 
+    display: flex;
+    flex-grow: 1; /* 使导航条占据剩余空间 */
+    justify-content: center; /* 在导航条之间均匀分布 */
 }
+#navbar .nav-item {
+    margin: 0 1%;
+}
+
 #navbar a {
     text-decoration: none; 
     color: black; 
@@ -64,9 +68,15 @@
     background-color: #f0f0f0; 
     border-radius: 4px; 
 }
-#navbar a:nth-child(6){width: 100%;}
+
+#logo {
+    width: 15%;
+    height: 100%;
+}
+.nav-login{
+    margin-right: 5%;
+}
 #login {
-    margin-left: auto; 
     font-weight: bold; 
     padding: 5px 10px; 
     color: black; 
@@ -317,12 +327,22 @@
         width: 15%;
         font-size: 12px;
     }
+
+    #navbar {
+        justify-content: center; 
+        font-size: 18px;
+    }
 }
     
 @media (max-width: 768px) {
+    
+    
+    .nav-item {
+        position: relative;
+        transform: translateX(-50%);
+    }
+
     #navbar {
-        flex-direction: row; 
-        flex-wrap: wrap; 
         justify-content: center; 
         font-size: 12px;
     }

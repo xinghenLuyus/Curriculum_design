@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="login-page">
         <div id="navbar">
             <img src="@/assets/picture/logo.png" alt="Logo" id="logo">
             <nav id="navv">
@@ -72,20 +72,20 @@
                     </FormItem>
 
                     <div class="last">
-                        <input type="checkbox" checked>
-                        <label for="xieyi" style="font-size: 10px;">同意并遵守服务协议和服务隐私</label>
+                        <input type="checkbox" checked id="check">
+                        <label id="la-xieyi">同意并遵守服务协议和服务隐私</label>
                     </div>
 
                     <Button :loading="form.loading" @click="handleSubmit" type="primary"  long class="bottom-size">立即登录</Button>
+                    
                     <div class="login"> 
                         <a href="">手机号登录</a>
                         <a href="">忘记密码</a>
                     </div>
-                    
                 </Form>
             </div>
             <!-- 登录框 -->
-            
+             <div id="space"></div>
         </div>
 
         <div id="banner">
