@@ -61,7 +61,6 @@
                                 type="text"
                                 ref="inputCode"
                                 v-model="inputCode"
-                                style="width:175px"
                                 placeholder="请输入验证码"
                                 clearable
                             ></el-input>
@@ -72,15 +71,17 @@
                         </div>
                     </FormItem>
 
+                    <div class="last">
+                        <input type="checkbox" checked>
+                        <label for="xieyi" style="font-size: 10px;">同意并遵守服务协议和服务隐私</label>
+                    </div>
+
                     <Button :loading="form.loading" @click="handleSubmit" type="primary"  long class="bottom-size">立即登录</Button>
                     <div class="login"> 
                         <a href="">手机号登录</a>
                         <a href="">忘记密码</a>
                     </div>
-                    <div class="last">
-                        <input type="checkbox" checked>
-                        <label for="xieyi" style="font-size: 10px;">同意并遵守服务协议和服务隐私</label>
-                    </div>
+                    
                 </Form>
             </div>
             <!-- 登录框 -->
