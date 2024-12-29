@@ -53,7 +53,7 @@
         <div id="main-top">
             <!-- 左边stare -->
             <div id="top-left">
-                <a href="" id="yhzx">用户中心>>></a>
+                <router-link to="/user-center" id="yhzx">用户中心>>></router-link>
                 <div id="user">
                     <div id="user-pic"> 
                         <img src="@/assets/picture/头像/9.jpg" alt="" id="tx">

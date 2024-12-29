@@ -104,9 +104,11 @@
 
 /* 大屏stare */
 #banner {
-    margin-top: 0%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     width: 100%;
     height: auto;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 /* 大屏end */
 
@@ -221,8 +223,9 @@
     margin: 0 auto;
     padding: 10px 10px;
     font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(200, 230, 255, 0.8);
     border-radius: 10px;
+    color: grey;
 }
 #space{
     margin: 5% 0px;

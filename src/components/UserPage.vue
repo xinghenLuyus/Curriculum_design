@@ -11,7 +11,7 @@
                 <p id="header-2">关注：1&emsp;|&emsp;粉丝：0</p>
             </div>
             <div id="button">
-                <input type="button" value="修改个人资料">
+                <input type="button" value="修改个人资料" @click="showDialog = true">
             </div>
         </div>
         <!-- 头像区域end -->
@@ -48,13 +48,83 @@
             <div></div>
         </div>
         <!-- 页脚end -->
+
+        <!-- 修改个人资料对话框stare -->
+        <el-dialog v-model="showDialog" title="修改个人资料">
+            <el-form :model="form">
+
+                <el-form-item label="昵称">
+                    <el-input v-model="form.nickName"></el-input>
+                </el-form-item>
+
+                <el-form-item label="性别">
+                    <el-radio-group v-model="form.gender">
+                        <el-radio label="男">男</el-radio>
+                        <el-radio label="女">女</el-radio>
+                    </el-radio-group>
+                </el-form-item>
+
+                <el-form-item label="签名">
+                    <el-input type="textarea" v-model="form.signature"></el-input>
+                </el-form-item>
+
+                <el-form-item label="头像">
+                    <el-upload
+                        action="#"
+                        list-type="picture-card"
+                        v-bind:on-preview="handlePicture"
+                        v-bind:on-remove="handleRemove">
+                        <i class="el-icon-plus"></i>
+                    </el-upload>
+                </el-form-item>
+            </el-form>
+
+            <template v-slot:footer>
+                <el-button @click="showDialog = false">取消</el-button>
+                <el-button type="primary" @click="handleSave">保存</el-button>
+            </template>
+
+        </el-dialog>
+        <!-- 修改个人资料对话框end -->
     </div>
 </template>
 
 <script>
-  export default {
-    name: 'UserPage'
-  }
-  </script>
-  
-  <style scoped src="@/assets/css/user.css"></style>
+import { ref } from 'vue';
+export default {
+    name: 'UserPage',
+    setup() {
+        const showDialog = ref(false);
+        const form = ref({
+            nickName: '',
+            gender: '',
+            signature: '',
+            avatar: ''
+        });
+
+        // 保存用户信息的逻辑
+        const handleSave = () => {
+            console.log('保存用户信息:', form.value);
+            showDialog.value = false;
+        };
+
+        const handlePicture = (file) => {
+            console.log('预览图片:', file);
+        };
+
+        const handleRemove = (file, fileList) => {
+            console.log('移除图片:', file, fileList);
+        };
+
+        return {
+            showDialog,
+            form,
+            handleSave,
+            handlePicture,
+            handleRemove
+        };
+    }
+};
+</script>
+
+<style scoped src="@/assets/css/user.css"></style>

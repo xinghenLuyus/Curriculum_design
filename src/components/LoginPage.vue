@@ -40,22 +40,22 @@
 
         <div id="main">
             <img src="@/assets/picture/登录界面/登录艺术字.png" alt="" id="ysz">
-            <!-- 登录框 -->
+            <!-- 登录框stare -->
             <div id="login-box">
-                <Form ref="loginForm" :model="form" :rules="rules" >
+                <el-form ref="loginForm" :model="form" :rules="rules">
                     <div id="user">
-                        <FormItem prop="userName">
-                            <el-input v-model="form.userName" placeholder="请输入用户名" show-password/>
-                        </FormItem>
+                        <el-form-item prop="userName">
+                            <el-input v-model="form.userName" placeholder="请输入用户名" clearable/>
+                        </el-form-item>
                     </div>
                     
                     <div id="password">
-                        <FormItem prop="password">
-                            <el-input type="password" v-model="form.password" placeholder="请输入密码"/>
-                        </FormItem>
+                        <el-form-item prop="password">
+                            <el-input type="password" v-model="form.password" placeholder="请输入密码" show-password/>
+                        </el-form-item>
                     </div>
                     
-                    <FormItem>
+                    <el-form-item>
                         <div style="display:flex" id="atilposition">
                             <el-input
                                 type="text"
@@ -66,26 +66,26 @@
                             ></el-input>
 
                             <span @click="createCode" id="spancode">
-                                    <SidentifyPage :identifyCode="code"></SidentifyPage>
+                                <SidentifyPage :identifyCode="code"></SidentifyPage>
                             </span>
                         </div>
-                    </FormItem>
+                    </el-form-item>
 
                     <div class="last">
                         <input type="checkbox" checked id="check">
                         <label id="la-xieyi">同意并遵守服务协议和服务隐私</label>
                     </div>
 
-                    <Button :loading="form.loading" @click="handleSubmit" type="primary"  long class="bottom-size">立即登录</Button>
+                    <el-button :loading="form.loading" @click="handleSubmit" type="primary" class="bottom-size">立即登录</el-button>
                     
                     <div class="login"> 
                         <a href="">手机号登录</a>
                         <a href="">忘记密码</a>
                     </div>
-                </Form>
+                </el-form>
             </div>
-            <!-- 登录框 -->
-             <div id="space"></div>
+            <!-- 登录框end -->
+            <div id="space"></div>
         </div>
 
         <div id="banner">
@@ -110,23 +110,32 @@ import SidentifyPage from './SidentifyPage.vue'
 export default {
     name: 'LoginPage',
     components: {
-      CarouselChart,
-      SidentifyPage
+        CarouselChart,
+        SidentifyPage
     },
     data() {
         return {
-            code:'',
-            inputCode:'',
+            code: '',
+            inputCode: '',
             form: {
-                userName: '',
-                password: '',
+                userName: '沅七', // 默认用户名
+                password: '123456', // 默认密码
                 loading: false
+            },
+            rules: {
+                userName: [
+                    { required: true, message: '请输入用户名', trigger: 'blur' }
+                ],
+                password: [
+                    { required: true, message: '请输入密码', trigger: 'blur' }
+                ]
             },
             dropdowns: {
                 recommend: false,
                 classify: false,
                 dynamic: false,
                 userCenter: false,
+                login: false
             },
             bannerImages: [
                 require('@/assets/picture/登录界面/01.jpg'),
@@ -151,43 +160,47 @@ export default {
         rotateBanner() {
             this.currentBannerIndex = (this.currentBannerIndex + 1) % this.bannerImages.length;
         },
+        // 验证码stare
         createCode() {
-      let text = "";
-      let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-      // 设置验证码长度，
-      for( let i=0; i < 4; i++ ){
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-      }
-      this.code = text
-    },
-    handleSubmit () {
-      this.form.loading = true
-      this.$refs.loginForm.validate((valid) => {
-        if (valid) {
-          if(this.inputCode == ''){
-            this.$Message.error('请输入验证码')
-            return
-          }
-          if(this.inputCode.toLowerCase() != this.code.toLowerCase()){
-            this.$Message.error('验证码错误')
-            this.inputCode = ''
-            this.createCode()
-            return
-          }
-          this.$emit('on-success-valid', {
-            userName: this.form.userName,
-            password: this.form.password
-          })
-        } else {
-          this.form.loading = false
+            let text = "";
+            let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            for (let i = 0; i < 4; i++) {
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+            this.code = text;
+        },
+        handleSubmit() {
+            this.form.loading = true;
+            this.$refs.loginForm.validate((valid) => {
+                if (valid) {
+                    if (this.inputCode === '') {
+                        this.$message.error('请输入验证码');
+                        this.form.loading = false;
+                        return;
+                    }
+                    if (this.inputCode.toLowerCase() !== this.code.toLowerCase()) {
+                        this.$message.error('验证码错误');
+                        this.inputCode = '';
+                        this.createCode();
+                        this.form.loading = false;
+                        return;
+                    }
+                    this.$emit('on-success-valid', {
+                        userName: this.form.userName,
+                        password: this.form.password
+                    });
+                    this.$router.push('/home'); // 跳转至首页
+                } else {
+                    this.form.loading = false;
+                }
+            });
         }
-      })
-    }
-},
+        // 验证码end
+    },
     mounted() {
         setInterval(this.rotateBanner, 3000);
         this.createCode();
-    },
+    }
 }
 </script>
 
