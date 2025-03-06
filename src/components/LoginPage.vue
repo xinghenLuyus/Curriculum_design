@@ -1,4 +1,17 @@
 <template>
+    <!-- 注册对话框 -->
+    <el-dialog title="用户注册" v-model="showRegisterDialog" width="30%">
+        <el-form ref="registerForm" :model="registerForm" :rules="rules">
+            <el-form-item prop="username">
+                <el-input v-model="registerForm.username" placeholder="请输入用户名" clearable />
+            </el-form-item>
+            <el-form-item prop="password">
+                <el-input type="password" v-model="registerForm.password" placeholder="请输入密码" show-password />
+            </el-form-item>
+            <el-button type="primary" @click="handleRegister" class="dialog-btn">立即注册</el-button>
+        </el-form>
+    </el-dialog>
+
     <div id="login-page">
         <div id="navbar">
             <img src="@/assets/picture/logo.png" alt="Logo" id="logo">
@@ -35,7 +48,6 @@
                     </div>
                 </div>
             </nav>
-            <div></div>
         </div>
 
         <div id="main">
@@ -44,8 +56,8 @@
             <div id="login-box">
                 <el-form ref="loginForm" :model="form" :rules="rules">
                     <div id="user">
-                        <el-form-item prop="userName">
-                            <el-input v-model="form.userName" placeholder="请输入用户名" clearable/>
+                        <el-form-item prop="username">
+                            <el-input v-model="form.username" placeholder="请输入用户名" clearable/>
                         </el-form-item>
                     </div>
                     
@@ -79,7 +91,7 @@
                     <el-button :loading="form.loading" @click="handleSubmit" type="primary" class="bottom-size">立即登录</el-button>
                     
                     <div class="login"> 
-                        <a href="">手机号登录</a>
+                        <a @click="showRegisterDialog = true">立即注册</a>
                         <a href="">忘记密码</a>
                     </div>
                 </el-form>
@@ -99,14 +111,16 @@
                 友情链接 <a href="">动漫评论</a> <a href="">异次元</a> <a href="">漫展</a> <a href="">高校动漫网</a> <a href="">二次元现场</a><br>
                 不良信息举报电话:12312312312 | 举报邮箱:ecy@zzz.com| 客服微信:yuanyuann丨 行政办公地址:将次元打开之地<br>
             </p>
-            <div></div>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+import CryptoJS from 'crypto-js'
 import CarouselChart from './CarouselChart.vue'
 import SidentifyPage from './SidentifyPage.vue'
+
 export default {
     name: 'LoginPage',
     components: {
@@ -115,20 +129,34 @@ export default {
     },
     data() {
         return {
+            // 注册
+            showRegisterDialog: false,
+            registerForm: {
+                username: '',
+                password: ''
+            },
+            userInfo: {
+                nickname: '',
+                gender: '',
+                signature: ''
+            },
+            // 扩展验证规则
+            rules: {
+                username: [
+                    { required: true, message: '请输入用户名', trigger: 'blur' },
+                    { min: 3, max: 16, message: '长度在 3 到 16 个字符', trigger: 'blur' }
+                ],
+                password: [
+                    { required: true, message: '请输入密码', trigger: 'blur' },
+                    { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' }
+                ]
+            },
             code: '',
             inputCode: '',
             form: {
-                userName: '沅七', // 默认用户名
+                username: 'ruanruan', // 默认用户名
                 password: '123456', // 默认密码
                 loading: false
-            },
-            rules: {
-                userName: [
-                    { required: true, message: '请输入用户名', trigger: 'blur' }
-                ],
-                password: [
-                    { required: true, message: '请输入密码', trigger: 'blur' }
-                ]
             },
             dropdowns: {
                 recommend: false,
@@ -142,7 +170,8 @@ export default {
                 require('@/assets/picture/登录界面/02.jpg'),
                 require('@/assets/picture/登录界面/03.jpg')
             ],
-            currentBannerIndex: 0
+            currentBannerIndex: 0,
+            registerLoading: false
         };
     },
     computed: {
@@ -186,23 +215,105 @@ export default {
                         return;
                     }
                     this.$emit('on-success-valid', {
-                        userName: this.form.userName,
+                        username: this.form.username,
                         password: this.form.password
                     });
-                    this.$router.push('/home'); // 跳转至首页
+                    axios.post('/api/users/login', 
+                    JSON.stringify({
+                        username: this.form.username,
+                        password: this.form.password
+                        }), {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(() => {
+                        this.$message.success('登录成功');
+                        // 获取完整用户信息
+                        axios.get(`/api/users/${this.form.username}`)
+                            .then(userRes => {
+                                this.userInfo = userRes.data;
+                                localStorage.setItem('userInfo', JSON.stringify({
+                                    username: userRes.data.username,
+                                    nickname: userRes.data.nickname,
+                                    gender: userRes.data.gender,
+                                    signature: userRes.data.signature
+                                }));
+                                localStorage.setItem('isLoggedIn', 'true');
+                                this.$router.push('/user-center');
+                            });
+                    })
+                    .catch(error => {
+                        console.error('请求失败：', error); // 添加日志信息
+                        this.$message.error('请求失败：' + (error.response?.data || '网络错误'));
+                    })
+                    .finally(() => {
+                        this.form.loading = false;
+                    });
                 } else {
                     this.form.loading = false;
                 }
             });
-        }
+        },
         // 验证码end
+        
+        handleRegister() {
+            this.$refs.registerForm.validate(valid => {
+                if (valid) {
+                    this.registerLoading = true;
+                    const userData = {
+                        username: this.registerForm.username,
+                        password: CryptoJS.AES.encrypt(
+                            this.registerForm.password,
+                            'your-secret-key'
+                        ).toString(),
+                        nickname: this.registerForm.username,
+                        gender: '男',
+                        signature: '请添加个性签名'
+                    };
+
+                    axios.post('/api/users/register', userData)
+                        .then(() => {
+                            axios.put(`/api/users/${userData.username}`, userData);
+                            this.$message.success('注册成功，请登录');
+                            this.showRegisterDialog = false;
+                            this.registerForm = { username: '', password: '' };
+                        })
+                        .catch(error => {
+                            this.$message.error(error.message);
+                        })
+                        .finally(() => {
+                            this.registerLoading = false;
+                        });
+                }
+            });
+        },
+        // 注册end
+
+        handleLogout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userInfo');
+            this.$message.success('已退出登录');
+        }
     },
     mounted() {
         setInterval(this.rotateBanner, 3000);
         this.createCode();
+        // 检查登录状态
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            this.$alert('你已登录', '提示', {
+                confirmButtonText: '返回主页',
+                cancelButtonText: '退出登录',
+                showCancelButton: true,
+                type: 'info'
+            }).then(() => {
+                this.$router.push('/home');
+            }).catch(() => {
+                this.handleLogout();
+            });
+        }
     }
 }
 </script>
-
 
 <style scoped src="@/assets/css/login.css"></style>

@@ -5,8 +5,8 @@
             <img src="@/assets/picture/用户中心/1.jpg" alt="">
             <div id="text">
                 <div id="header-1">
-                    <p>昵称：沅子</p>
-                    <p>ID：62981286</p>
+                    <p>昵称：{{ form.nickname }}</p>
+                    <p>用户名：{{form.username}}</p>
                 </div>
                 <p id="header-2">关注：1&emsp;|&emsp;粉丝：0</p>
             </div>
@@ -54,7 +54,7 @@
             <el-form :model="form">
 
                 <el-form-item label="昵称">
-                    <el-input v-model="form.nickName"></el-input>
+                    <el-input v-model="form.nickname"></el-input>
                 </el-form-item>
 
                 <el-form-item label="性别">
@@ -90,22 +90,48 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import { ElMessage } from 'element-plus';
+
 export default {
     name: 'UserPage',
     setup() {
         const showDialog = ref(false);
         const form = ref({
-            nickName: '',
+            nickname: '',
             gender: '',
             signature: '',
-            avatar: ''
+            avatar: '',
+            username: ''
+        });
+
+        const loadUserInfo = async () => {
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            if (userInfo) {
+                form.value = userInfo;
+                //向控制台输出用户信息
+                console.log('用户信息:', userInfo);
+            } else {
+                ElMessage.error('用户信息加载失败，请重新登录');
+            }
+        };
+
+        onMounted(() => {
+            loadUserInfo();
         });
 
         // 保存用户信息的逻辑
-        const handleSave = () => {
-            console.log('保存用户信息:', form.value);
-            showDialog.value = false;
+        const handleSave = async () => {
+            try {
+                const username = form.value.username;
+                await axios.put(`/api/users/${username}`, form.value);
+                ElMessage.success('信息更新成功');
+                localStorage.setItem('userInfo', JSON.stringify(form.value));
+                showDialog.value = false;
+            } catch (error) {
+                ElMessage.error('更新失败：' + (error.response?.data || '网络错误'));
+            }
         };
 
         const handlePicture = (file) => {

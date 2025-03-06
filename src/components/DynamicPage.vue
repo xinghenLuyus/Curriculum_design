@@ -7,8 +7,8 @@
         <div id="user-part1">
           <img src="@/assets/picture/用户中心/1.jpg" alt="" id="user-pic">
           <div id="pet-name">
-            <p id="name1">昵称：沅子</p>
-            <p id="name2">ID：62981286</p>
+            <p id="name1">昵称：沅七</p>
+            <p id="name2">用户名：ruanruan</p>
           </div>
         </div>
         <div id="user-part1">

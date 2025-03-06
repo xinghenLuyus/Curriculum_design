@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="nav-item" @mouseover="showDropdown('userCenter')" @mouseleave="hideDropdown('userCenter')">
-          <router-link to="/user-center">用户中心</router-link>
+          <router-link to="/user-center" @click.prevent="checkLogin">用户中心</router-link>
           <div class="dropdown" v-if="dropdowns.userCenter">
             <router-link to="/user-center/sub1">我的</router-link>
             <router-link to="/user-center/sub2">设置</router-link>
@@ -39,7 +39,7 @@
       </nav>
 
       <div class="nav-login" @mouseover="showDropdown('login')" @mouseleave="hideDropdown('login')">
-        <router-link to="/login" id="login">登录</router-link>
+        <router-link to="/login" id="login">{{ loginText }}</router-link>
       </div>
 
     </div>
@@ -235,7 +235,8 @@ export default {
         require('@/assets/picture/banner/2.jpg'),
         require('@/assets/picture/banner/3.jpg')
       ],
-      currentBannerIndex: 0
+      currentBannerIndex: 0,
+      loginText: '登录'
     }
   },
   computed: {
@@ -280,10 +281,27 @@ export default {
       const text = event.currentTarget.querySelector('.overlay-text');
       img.style.opacity = 1;
       text.style.opacity = 0;
+    },
+    checkLogin() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      if (!isLoggedIn) {
+        this.$alert('请先登录', '提示', {
+          confirmButtonText: '确定',
+          type: 'warning'
+        }).then(() => {
+          this.$router.push('/login');
+        });
+      } else {
+        this.$router.push('/user-center');
+      }
     }
   },
   mounted() {
     setInterval(this.rotateBanner, 3000); // 每3秒切换一次图片
+    const username = localStorage.getItem('username');
+    if (username) {
+      this.loginText = username;
+    }
   }
 }
 </script>

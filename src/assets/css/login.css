@@ -316,3 +316,30 @@
     }
 }
 /* 自适应end */
+
+.dialog-btn {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .login a {
+    cursor: pointer;
+    color: #409EFF;
+    text-decoration: none;
+    margin-right: 30px;
+  }
+  
+  .login a:hover {
+    text-decoration: underline;
+  }
+
+/* 小屏幕适配 */
+@media (max-width: 768px) {
+    #login-box {
+        width: 90% !important;
+    }
+    
+    .el-dialog {
+        width: 80% !important;
+    }
+}

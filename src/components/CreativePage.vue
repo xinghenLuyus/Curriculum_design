@@ -38,7 +38,7 @@
                         <div id="tx"><img src="@/assets/picture/头像/9.jpg" alt=""></div>
                         <div id="text">
                             <p id="p1">沅七</p>
-                            <p id="p2">关注：1&emsp;|&emsp;粉丝：0<span>&emsp;&emsp;ID:62981286</span></p>
+                            <p id="p2">关注：1&emsp;|&emsp;粉丝：0<span>&emsp;&emsp;用户名：ruanruan</span></p>
                         </div>
                     </div>
                     <div id="center-2">
